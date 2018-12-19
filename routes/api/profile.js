@@ -294,6 +294,8 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Profile.findOneAndRemove({ user: req.user.id }).then(() => {
+      // To do: this doesn't work yet
+      // Also if user is deleted, how to delete posts posted by the user?
       User.findOneAndRemove({ _id: req.user.id });
       res.json({ success: true });
     });
