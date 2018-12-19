@@ -290,7 +290,7 @@ router.delete(
 // @desc Delete education and profile
 // @access Private
 router.delete(
-  "/",
+  "/:user_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Profile.findOneAndRemove({ user: req.user.id }).then(() => {
