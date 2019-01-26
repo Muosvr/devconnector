@@ -5,7 +5,7 @@ import { GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE } from "./types";
 export const getCurrentProfile = () => dispatch => {
   dispatch(setProfileLoading());
   axios
-    .get('/api/profile')
+    .get("/api/profile")
     .then(res => {
       dispatch({
         type: GET_PROFILE,
@@ -28,7 +28,7 @@ export const setProfileLoading = () => {
 };
 
 // Clear profile
-export const setProfileLoading = () => {
+export const clearCurrentProfile = () => {
   return {
     type: CLEAR_CURRENT_PROFILE
   };
